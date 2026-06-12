@@ -27,3 +27,11 @@
     height: 50px;
     color: #6a737d;
 }
+@media (max-width: 480px) {
+    .signUpBtn {
+        gap: 10px
+    }
+    .authContainer {
+        gap: 10px;
+    }
+}
