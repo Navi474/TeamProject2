@@ -13,4 +13,23 @@
     font-size: 12px;
     color: #000;
     text-decoration: none;
+    transition: color 0.3s;
+}
+
+@media (any-hover: hover) {
+    .nav a:hover {
+        color: gray;
+    }
+}
+
+@media (max-width: 1024px) {
+    .nav ul {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 760px) {
+    .nav ul {
+        gap: 10px;
+    }
 }
