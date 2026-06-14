@@ -10,3 +10,9 @@
     padding: 0 40px;
     box-sizing: border-box;
 }
+@media (max-width: 768px) {
+    .header {
+        padding: 0 20px;
+        height: 70px;
+    }
+}
