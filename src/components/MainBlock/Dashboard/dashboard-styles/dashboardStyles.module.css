@@ -1,49 +1,62 @@
-.block {
-    display: flex;
-    flex-direction: column;
-    justify-self: center;
-    align-items: center;
+.heroSection {
+    font-family: "Montserrat", sans-serif;
+    padding-top: 100px;
+    padding-bottom: 100px;
     background-image: url(/src/images/main_bg.png);
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 0;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    font-family: "Montserrat", sans-serif;
+}
+
+.heroContainer {
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+.mainBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: #fff;
 }
 
-.h3 {
+.title {
     font-size: 40px;
     font-weight: 600;
     margin-bottom: 80px;
 }
 
 .textColumn {
+    width: 100%;
     display: flex;
-    gap: 50px;
+    justify-content: center;
+    gap: 3.75rem;
     font-size: 24px;
     margin-bottom: 80px;
 
 }
 
 .leftColumn {
-    max-width: 345px;
     text-align: right;
 }
 
-.verticalLine{
+.leftColumn,
+.rightColumn {
+    flex-basis: 25rem;
+}
+
+.verticalLine {
     height: 144px;
     width: 3px;
     border-radius: 10px;
     background-color: #fff;
 }
 
-.rightColumn {
-    max-width: 164px;
+
+.searchBlock {
+    display: flex;
 }
 
-.dashInput{
+.searchInput {
     width: 625px;
     padding-top: 12px;
     padding-bottom: 12px;
@@ -56,11 +69,7 @@
     border: none;
 }
 
-.downBlock{
-    display: flex;
-}
-
-.searchBtn{
+.searchBtn {
     cursor: pointer;
     display: flex;
     justify-content: center;
