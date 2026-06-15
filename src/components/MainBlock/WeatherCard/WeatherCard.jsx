@@ -2,7 +2,31 @@ import { FiRefreshCcw, FiTrash2 } from 'react-icons/fi';
 import { FaRegHeart } from 'react-icons/fa';
 import { IoMdSunny } from 'react-icons/io';
 import styles from "./WeatherCard-styles/WeatherCard.module.css";
+import { useState, useEffect } from 'react';
+
 export default function WeatherCard() {
+
+    const API_KEY = '8be71cd1c58713b215c738287dde46b9'
+
+    const [weather, setWeather] = useState(null)
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
+    useEffect(() => {
+        const loadWeather = async () => {
+            setLoading(true);
+            try {
+                const response = await fetch(`https://api.openweathermap.org/data/4.0/onecall/timeline/1day?lat={lat}&lon={lon}&appid={API_KEY (https://api.openweathermap.org/data/4.0/onecall/timeline/1min?lat=51.5&lon=-0.1&appid=$%7BAPI_KEY%7D%60)}`);
+                const data = await response.json();
+                setWeather(data);
+            } catch (error) {
+                setError(error.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+        loadWeather();
+    }, []);
+
     return (
         <div className={styles.card}>
 
