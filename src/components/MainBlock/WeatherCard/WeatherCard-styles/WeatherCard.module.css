@@ -1,0 +1,146 @@
+.card {
+    background: #e8e8e8;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 320px;
+    height: 430px;
+    padding: 25px 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.city {
+    font-family: var(--font-family, sans-serif);
+    font-weight: 500;
+    font-size: 14px;
+    color: #000;
+}
+
+.country {
+    font-family: var(--font-family, sans-serif);
+    font-weight: 500;
+    font-size: 14px;
+    text-align: right;
+    color: #000;
+}
+
+.time {
+    font-family: var(--font-family, sans-serif);
+    font-weight: 500;
+    font-size: 24px;
+    color: #000;
+    margin-top: 15px;
+}
+
+.forecastWrapper {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.forecastBtn {
+    background: #ffb36c;
+    border-radius: 10px;
+    padding: 8px 18px;
+    width: 114px;
+    height: 28px;
+    border: none;
+    box-sizing: border-box;
+
+    font-family: var(--font-family, sans-serif);
+    font-weight: 500;
+    font-size: 10px;
+    color: #000;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dateWrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.dateText {
+    font-family: var(--font-family, sans-serif);
+    font-weight: 500;
+    font-size: 14px;
+    color: #000;
+}
+
+.separator {
+    width: 1px;
+    height: 17px;
+    background-color: #000;
+}
+
+.weatherIcon {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.temperature {
+    font-family: var(--font-family, sans-serif);
+    font-weight: 500;
+    font-size: 32px;
+    color: #000;
+    margin-top: 10px;
+}
+
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.actionIcon {
+    width: 30px;
+    height: 30px;
+    color: #000;
+    cursor: pointer;
+}
+
+.heartIcon {
+    width: 30px;
+    height: 30px;
+    color: #ff4d4d;
+    cursor: pointer;
+}
+
+.seeMoreBtn {
+    background: #ffb36c;
+    border-radius: 10px;
+    padding: 8px 25px;
+    width: 99px;
+    height: 28px;
+    border: none;
+    box-sizing: border-box;
+
+    font-family: var(--font-family, sans-serif);
+    font-weight: 500;
+    font-size: 10px;
+    color: #000;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
