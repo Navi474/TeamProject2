@@ -1,0 +1,33 @@
+.chartContainer {
+    background: #e8e8e8;
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-family: var(--font-family, sans-serif);
+    font-weight: 600;
+    font-size: 16px;
+    color: #000;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.canvasWrapper {
+    position: relative;
+    width: 100%;
+    height: 350px;
+}
+
+@media (max-width: 768px) {
+    .chartContainer {
+        padding: 20px;
+    }
+    .canvasWrapper {
+        height: 260px;
+    }
+}

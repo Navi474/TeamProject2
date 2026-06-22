@@ -1,0 +1,45 @@
+.galleryContainer {
+    width: 100%;
+    max-width: 1170px;
+    margin: 40px auto;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.title {
+    font-family: var(--font-family, sans-serif);
+    font-weight: 500;
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.swiperWrapper {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.slide {
+    height: 211px;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 1200px) {
+    .galleryContainer {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide {
+        height: 160px;
+    }
+}

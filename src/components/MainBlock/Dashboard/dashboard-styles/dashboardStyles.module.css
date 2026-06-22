@@ -71,3 +71,24 @@
     outline: 2px #000 solid;
     border-radius: 0 10px 10px 0;
 }
+
+.chartSection {
+    width: 100%;
+    max-width: 1170px;
+    margin: 40px auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1200px) {
+    .chartSection {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .chartSection {
+        padding: 0 20px;
+        margin: 20px auto;
+    }
+}
