@@ -2,9 +2,22 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: flex-start;
+
     gap: 40px;
     padding: 40px 20px;
+
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
+}
+
+.heartIcon {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.heartIcon:hover {
+    transform: scale(1.1);
+    color: red;
 }
