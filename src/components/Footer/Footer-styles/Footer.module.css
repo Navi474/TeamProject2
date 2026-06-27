@@ -1,0 +1,88 @@
+.footer {
+    width: 100%;
+    min-height: 179px;
+    background: #ffb36c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    color: #000;
+    margin-top: auto;
+}
+
+.footerContainer {
+    width: 100%;
+    max-width: 1170px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.logoWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.logoWrapper img {
+    mix-blend-mode: multiply;
+}
+
+.addressBlock, .contactsBlock {
+    display: flex;
+    flex-direction: column;
+}
+
+.blockTitle {
+    font-family: var(--second-family, "Montserrat", sans-serif);
+    font-weight: 500;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 12px;
+}
+
+.addressText {
+    font-family: var(--second-family, "Montserrat", sans-serif);
+    font-weight: 500;
+    font-size: 12px;
+    color: #000;
+    font-style: normal;
+    line-height: 1.5;
+}
+
+.socialsRow {
+    display: flex;
+    gap: 12px;
+}
+
+.iconBtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 22px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.iconBtn:hover {
+    transform: translateY(-4px);
+}
+
+.inst { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+.fb   { background: #1877f2; }
+.wa   { background: #25d366; }
+
+@media (max-width: 768px) {
+    .footerContainer {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+    .socialsRow { justify-content: center; }
+}

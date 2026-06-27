@@ -1,18 +1,23 @@
 .listContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: flex-start;
+
+    gap: 40px;
+    padding: 40px 20px;
+
     width: 100%;
     max-width: 1170px;
     margin: 0 auto;
-    padding: 40px 0;
-    box-sizing: border-box;
 }
 
-@media (max-width: 1200px) {
-    .listContainer {
-        padding: 40px 20px;
-        justify-content: center;
-        gap: 30px;
-    }
+.heartIcon {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.heartIcon:hover {
+    transform: scale(1.1);
+    color: red;
 }

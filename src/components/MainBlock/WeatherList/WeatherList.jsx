@@ -1,12 +1,20 @@
 import styles from "./WeatherList-styles/WeatherList.module.css";
-import WeatherCard from '../WeatherCard/WeatherCard';
+import WeatherCard from "../WeatherCard/WeatherCard";
 
-export default function WeatherList() {
+function WeatherList({ cities, onRemoveCity }) {
+    if (!cities.length) return null;
+
     return (
         <div className={styles.listContainer}>
-            <WeatherCard />
-            <WeatherCard />
-            <WeatherCard />
+            {cities.map(city => (
+                <WeatherCard
+                    key={city.name}
+                    city={city}
+                    onRemove={onRemoveCity}
+                />
+            ))}
         </div>
     );
 }
+
+export default WeatherList;
