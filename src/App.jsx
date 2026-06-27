@@ -1,17 +1,13 @@
 import { useEffect, useState } from "react";
 import Header from "./components/Header/header-main/Header";
 import Dashboard from "./components/MainBlock/Dashboard/Dashboard";
-import './App.css';
+import "./App.css";
 
 function App() {
-    const [cities, setCities] = useState([]);
-
-    useEffect(() => {
+    const [cities, setCities] = useState(() => {
         const saved = localStorage.getItem("weather_cities");
-        if (saved) {
-            setCities(JSON.parse(saved));
-        }
-    }, []);
+        return saved ? JSON.parse(saved) : [];
+    });
 
     useEffect(() => {
         localStorage.setItem("weather_cities", JSON.stringify(cities));
@@ -19,13 +15,20 @@ function App() {
 
     const addCity = (city) => {
         setCities(prev => {
-            if (prev.find(c => c.name === city.name)) return prev;
+            const exists = prev.some(
+                c => c.name.toLowerCase() === city.name.toLowerCase()
+            );
+
+            if (exists) return prev;
+
             return [...prev, city];
         });
     };
 
     const removeCity = (cityName) => {
-        setCities(prev => prev.filter(c => c.name !== cityName));
+        setCities(prev =>
+            prev.filter(c => c.name !== cityName)
+        );
     };
 
     return (

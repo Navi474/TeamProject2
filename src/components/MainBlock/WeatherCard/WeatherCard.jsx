@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FiRefreshCcw, FiTrash2 } from 'react-icons/fi';
-import { FaRegHeart } from 'react-icons/fa';
+import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import { IoMdSunny } from 'react-icons/io';
 import styles from "./WeatherCard-styles/WeatherCard.module.css";
 
@@ -10,6 +10,7 @@ export default function WeatherCard({ city, onRemove }) {
     const [weather, setWeather] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [favorite, setFavorite] = useState(false);
 
     const now = new Date();
     const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -21,9 +22,14 @@ export default function WeatherCard({ city, onRemove }) {
         if (!city) return;
         setLoading(true);
         setError(null);
+
         try {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=${API_KEY}&units=metric`);
+            const response = await fetch(
+                `https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=${API_KEY}&units=metric`
+            );
+
             if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+
             const data = await response.json();
             setWeather(data);
         } catch (err) {
@@ -34,15 +40,54 @@ export default function WeatherCard({ city, onRemove }) {
     };
 
     useEffect(() => {
-        loadWeather();
+        if (!city) return;
+
+        let ignore = false;
+
+        const fetchWeather = async () => {
+            setLoading(true);
+            setError(null);
+
+            try {
+                const response = await fetch(
+                    `https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=${API_KEY}&units=metric`
+                );
+
+                if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+
+                const data = await response.json();
+
+                if (!ignore) {
+                    setWeather(data);
+                }
+            } catch (err) {
+                if (!ignore) setError(err.message);
+            } finally {
+                if (!ignore) setLoading(false);
+            }
+        };
+
+        fetchWeather();
+
+        return () => {
+            ignore = true;
+        };
     }, [city]);
 
-    if (loading) {
-        return <div className={styles.card} style={{ padding: '20px', color: 'black' }}>Завантаження погоди для {city?.name}...</div>;
+    if (loading && !weather) {
+        return (
+            <div className={styles.card} style={{ padding: '20px', color: 'black' }}>
+                Завантаження погоди для {city?.name}...
+            </div>
+        );
     }
 
     if (error) {
-        return <div className={styles.card} style={{ padding: '20px', color: 'red' }}>Помилка: {error}</div>;
+        return (
+            <div className={styles.card} style={{ padding: '20px', color: 'red' }}>
+                Помилка: {error}
+            </div>
+        );
     }
 
     if (!weather) return null;
@@ -71,21 +116,39 @@ export default function WeatherCard({ city, onRemove }) {
                 <IoMdSunny size={120} color="#FFD05B" />
             </div>
 
-            <div className={styles.temperature}>{Math.round(weather.main?.temp || 0)}°C</div>
+            <div className={styles.temperature}>
+                {Math.round(weather.main?.temp || 0)}°C
+            </div>
 
             <div className={styles.footer}>
                 <FiRefreshCcw
                     className={styles.actionIcon}
                     onClick={loadWeather}
-                    style={{ cursor: 'pointer' }}
-                    title="Оновити погоду зараз"
+                    title="Оновити погоду"
                 />
-                <FaRegHeart className={styles.heartIcon} />
-                <button className={styles.seeMoreBtn} style={{ display: 'none' }}>See more</button>
+
+                {favorite ? (
+                    <FaHeart
+                        className={`${styles.heartIcon} ${styles.favorite}`}
+                        onClick={() => setFavorite(false)}
+                    />
+                ) : (
+                    <FaRegHeart
+                        className={styles.heartIcon}
+                        onClick={() => setFavorite(true)}
+                    />
+                )}
+
+                <button
+                    className={styles.seeMoreBtn}
+                    style={{ display: 'none' }}
+                >
+                    See more
+                </button>
+
                 <FiTrash2
                     className={styles.actionIcon}
                     onClick={() => onRemove && onRemove(city.name)}
-                    style={{ cursor: 'pointer' }}
                     title="Видалити місто"
                 />
             </div>

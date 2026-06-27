@@ -121,8 +121,17 @@
 .heartIcon {
     width: 30px;
     height: 30px;
-    color: #ff4d4d;
+    color: #8a8a8a;
     cursor: pointer;
+    transition: color .2s ease, transform .2s ease;
+}
+
+.heartIcon:hover {
+    transform: scale(1.15);
+}
+
+.favorite {
+    color: #ff3b30;
 }
 
 .seeMoreBtn {
