@@ -6,6 +6,7 @@ import ForecastChart from '../ForecastChart/ForecastChart.jsx';
 import NewsSection from '../NewsSection/NewsSection.jsx';
 import GallerySection from '../GallerySection/GallerySection.jsx';
 import Footer from "../../Footer/Footer.jsx";
+import searchIcon from "../../../assets/image 2.svg";
 
 const getOrdinal = (n) => {
     const s = ["th", "st", "nd", "rd"];
@@ -71,7 +72,7 @@ function Dashboard({ onSelectCity, cities, onRemoveCity }) {
                             />
 
                             <button className={styles.searchBtn}>
-                                <img src="src/assets/image 2.svg" alt="search" />
+                                <img src={searchIcon} alt="search" />
                             </button>
 
                             {showResults && searchResults.length > 0 && (

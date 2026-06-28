@@ -1,25 +1,30 @@
 import styles from './NewsSection-styles/NewsSection.module.css';
 
+import news1Img from '../../../images/news1.png';
+import news2Img from '../../../images/news2.png';
+import news3Img from '../../../images/news3.png';
+import news4Img from '../../../images/news4.png';
+
 export default function NewsSection() {
     const articles = [
         {
             id: 1,
-            image: 'src/images/news1.png',
+            image: news1Img,
             text: 'Rescue pups pose as ghosts in festive photo shoot'
         },
         {
             id: 2,
-            image: 'src/images/news2.png',
+            image: news2Img,
             text: 'Cat interrupts morning coffee on sunny Washington morning'
         },
         {
             id: 3,
-            image: 'src/images/news3.png',
+            image: news3Img,
             text: 'New study finds dogs pay more attention to women'
         },
         {
             id: 4,
-            image: 'src/images/news4.png',
+            image: news4Img,
             text: 'Petting dogs gives health benefit, even if they are not yours'
         }
     ];
